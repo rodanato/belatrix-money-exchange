@@ -7,19 +7,19 @@ import * as API from "./exchange.api";
 import ExchangeHeader from "./header/exchange-header.component";
 import ExchangeBody from "./body/exchange-body.component";
 
-class Exchange extends Component<types.Props, types.State> {
-  doExchange() {
-    API.exchangeFromTo("USD", "EUR", 20)
+class Exchange extends Component<types.ExchangeProps, types.ExchangeState> {
+  doExchange = (from: string, to: string, amount: number) => {
+    API.doExchangeFromTo(from, to)
       .then(res => res.json())
-      .then((res: types.exchangeResponse) => res.result)
-      .catch((error: string) => console.error(error));
+      .then(res => console.log(amount*res[`${from}_${to}`].val))
+      .catch((error: any) => console.log(error));
   }
 
   render() {
     return <section className="section-exchange">
-        <ExchangeHeader />
-        <ExchangeBody />
-      </section>;
+      <ExchangeHeader />
+      <ExchangeBody onExchange={this.doExchange} />
+    </section>;
   }
 }
 

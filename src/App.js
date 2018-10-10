@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import "bulma/css/bulma.css";
 import './App.css';
 
-import Exchange from './exchange/header/exchange-header.component';
+import Exchange from './exchange/exchange.component';
 
 class App extends Component<void> {
 

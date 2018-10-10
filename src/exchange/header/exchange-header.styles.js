@@ -1,3 +1,4 @@
+import { css } from 'react-emotion'
 
 export const exchangeHeader = css`
   background-color: #282c34;

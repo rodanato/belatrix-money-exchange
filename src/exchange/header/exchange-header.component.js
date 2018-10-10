@@ -1,6 +1,5 @@
 // @flow
 import React from "react";
-import {css} from 'react-emotion';
 
 import * as styles from './exchange-header.styles';
 import { ReactComponent as Logo } from "../../logo.svg";
