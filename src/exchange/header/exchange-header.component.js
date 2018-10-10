@@ -2,11 +2,11 @@
 import React from "react";
 
 import * as styles from './exchange-header.styles';
-import { ReactComponent as Logo } from "../../logo.svg";
+// import { ReactComponent as Logo } from "../../logo.svg";
 
 const ExchangeHeader = () => (
   <header className={styles.exchangeHeader}>
-    <Logo className="logo" width="200" />
+    {/* <Logo className="logo" width="200" /> */}
 
     <div className="field is-grouped has-centered-text">
       <p className="control">
