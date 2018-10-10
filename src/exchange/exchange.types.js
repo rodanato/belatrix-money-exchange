@@ -2,13 +2,19 @@ export type ExchangeProps = {};
 
 export type ExchangeState = {};
 
-export type ExchangeBodyProps = {
+export type ExchangeConverterProps = {
   onExchange: string,
-  exchangedCurrency: number
+  exchangedCurrency: number,
+  baseCurrency: any,
+  converToCurrency: any
 };
 
-export type ExchangeBodyState = {
-  baseCurrency: string,
-  baseCurrencyError: string,
-  forcedSubmit: boolean
+export type ExchangeConverterState = {
+  baseCurrencyValue: string,
+  exchangedCurrency: string
 };
+
+export type ExchangeFormatter = {
+  formattedValue: string,
+  value: string | number
+}
