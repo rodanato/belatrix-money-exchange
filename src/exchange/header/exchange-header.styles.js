@@ -2,7 +2,7 @@ import { css } from 'react-emotion'
 
 export const exchangeHeader = css`
   background-color: #282c34;
-  min-height: 100vh;
+  min-height: 10vh;
   display: flex;
   flex-direction: column;
   align-items: center;
