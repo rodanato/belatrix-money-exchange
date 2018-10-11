@@ -1,18 +1,20 @@
 // @flow
-import React from "react";
+import React, { PureComponent } from "react";
 import NumberFormat from "react-number-format";
 import * as types from "./converter-output.types";
 
-const ConverterOutput = ({ symbol, exchangedCurrency }: types.ConverterOutputProps) => (
-  <NumberFormat
+class ConverterOutput extends PureComponent<types.ConverterOutputProps, {}> {
+  render() {
+    return   <NumberFormat
     className="input"
-    value={exchangedCurrency}
+    value={this.props.exchangedCurrency}
     displayType={"text"}
     decimalScale={4}
     thousandSeparator={true}
-    prefix={symbol}
+    prefix={this.props.symbol}
     disabled
   />
-);
+  }
+}
 
 export default ConverterOutput;
