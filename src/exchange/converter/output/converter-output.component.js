@@ -1,7 +1,7 @@
 // @flow
 import React from "react";
 import NumberFormat from "react-number-format";
-import * as types from "../exchange.types";
+import * as types from "./converter-output.types";
 
 const ConverterOutput = ({ symbol, exchangedCurrency }: types.ConverterOutputProps) => (
   <NumberFormat

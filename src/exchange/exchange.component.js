@@ -2,9 +2,11 @@
 import React, { Component } from "react";
 
 import * as types from "./exchange.types";
+import * as styles from "./exchange.styles";
 
 import ExchangeHeader from "./header/exchange-header.component";
-import ExchangeConverter from "./exchange-converter/exchange-converter.component";
+import ExchangeFooter from "./footer/exchange-footer.component";
+import ExchangeConverter from "./converter/exchange-converter.component";
 
 class Exchange extends Component<types.ExchangeProps, types.ExchangeState> {
   render() {
@@ -12,7 +14,7 @@ class Exchange extends Component<types.ExchangeProps, types.ExchangeState> {
       <section className="section-exchange">
         <ExchangeHeader />
 
-        <section>
+        <section className={styles.exchangeBody}>
           <div className="columns is-multiline">
             <div className="column is-12">
               <ExchangeConverter
@@ -25,20 +27,11 @@ class Exchange extends Component<types.ExchangeProps, types.ExchangeState> {
                   symbol: "€"
                 }}
               />
-
-              <ExchangeConverter
-                baseCurrency={{
-                  text: "EUR",
-                  symbol: "€"
-                }}
-                converToCurrency={{
-                  text: "USD",
-                  symbol: "$"
-                }}
-              />
             </div>
           </div>
         </section>
+
+        <ExchangeFooter />
       </section>
     );
   }

@@ -1,18 +1,19 @@
 // @flow
 import React, { Component } from "react";
-import * as types from "../exchange.types";
+import * as types from "./exchange-converter.types";
+import * as styles from "./exchange-converter.styles";
 import * as API from "../exchange.api";
-import ConverterInput from "./converter-input.component";
-import ConverterOutput from "./converter-output.component";
+import ConverterInput from "./input/converter-input.component";
+import ConverterOutput from "./output/converter-output.component";
 
-const requestTimeout: number = 1 * 60 * 1000; 
+const requestTimeout: number = 10 * 60 * 1000;
 
 class ExchangeConverter extends Component<
   types.ExchangeConverterProps,
   types.ExchangeConverterState
 > {
   requestTimer: IntervalID;
-  
+
   state = {
     baseCurrencyValue: "",
     exchangedCurrency: ""
@@ -25,7 +26,7 @@ class ExchangeConverter extends Component<
         const convertedValue: number = +amount * res[`${from}_${to}`].val;
         this.handleExchangedAmount(convertedValue);
       })
-      .catch((error: any) => console.log(error));
+      .catch((error: Error) => console.log(error));
   };
 
   handleExchangedAmount = (amount: number) => {
@@ -59,10 +60,10 @@ class ExchangeConverter extends Component<
 
   render() {
     return (
-      <section>
+      <section className={styles.exchangeConverter}>
         <form onSubmit={this.handleSubmit}>
-          <div className="columns is-multiline is-centered">
-            <div className="column is-6">
+          <div className="columns is-centered">
+            <div className="column is-4">
               <div className="control">
                 <label className="label">{this.props.baseCurrency.text}</label>
                 <ConverterInput
@@ -72,7 +73,7 @@ class ExchangeConverter extends Component<
               </div>
             </div>
 
-            <div className="column is-6">
+            <div className="column is-4">
               <div className="control">
                 <label className="label">
                   {this.props.converToCurrency.text}
@@ -83,8 +84,9 @@ class ExchangeConverter extends Component<
                 />
               </div>
             </div>
-
-            <div className="column is-6">
+          </div>
+          <div className="columns is-centered">
+            <div className="column is-3">
               <button
                 type="button"
                 className="button is-link is-fullwidth"
